@@ -1,10 +1,10 @@
- const express=require('express');
+const express=require('express');
 const app=express();
 const port=4000;
 //userdefined middle ware
 const adi=(req,res,next)=>{
-     const age=req.query.age
-    if(age!)
+    const age=req.query.age
+    if(!age)
     {
         res.send("plz enter age")
     }
@@ -14,13 +14,13 @@ const adi=(req,res,next)=>{
     }
     next();
 }
-
+app.use(adi)
 
 app.get('/',(req,res)=>{
     res.send('this is my home page')
 })
 
-app.get('/about',adi,(req,res)=>{
+app.get('/about',(req,res)=>{
     res.send("this is my about page")
 })
 
